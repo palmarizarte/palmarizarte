@@ -1,0 +1,153 @@
+/*MODO OSCURO*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    padding: 1rem 1rem 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+.checkbox {
+    height: 35px;
+    width: 70px;
+    background: #222;
+    appearance: none;
+    border-radius: 35px;
+    box-shadow: inset 0 1.75px 11.6px rgba(0, 0, 0, 0.1),
+                inset 0 1.75px 1.75px rgba(0, 0, 0, 0.1),
+                inset 0 -0.875px 0.875px rgba(0, 0, 0, 0.1);
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.checkbox::before {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: linear-gradient(to bottom, #444, #222);
+    border-radius: 35px;
+    transform: scale(0.9);
+    transition: 0.5s;
+    box-shadow: 0 1.75px 3.8px rgba(0, 0, 0, 0.5),
+                inset 0.875px 0.875px rgba(255, 255, 255,0.2),
+                inset -0.875px 0.875px rgba(255, 255, 255,0.2);
+}
+
+.checkbox:checked {
+    background: #fff;
+    box-shadow: inset 0 2px 5.8px rgba(0, 0, 0, 0.1),
+                inset 0 2px 1.75px rgba(0, 0, 0, 0.1),
+                inset 0 -0.875px 0.875px rgba(0, 0, 0, 0.5);
+}
+
+.checkbox:checked::before {
+    left: 35px;
+    box-shadow:  0 1.75px 3.8px rgba(0, 0, 0, 0.1),
+    inset 0.875px 0.875px rgba(255, 255, 255, 1),
+    inset  -0.875px 0.875px rgba(255, 255, 255, 1);
+    background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+}
+
+.checkbox::after {
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: #2b2b2b;
+    top: 11.6px;
+    left: 35px;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+
+.checkbox:checked::after {
+    background: #ffffff;
+}
+
+
+/* Modo Oscuro */
+body.dark-mode {
+    --body-color: #1a1a1a;
+    --container-color: #2b2b2b;
+    --title-color: #ffffff;
+    --text-color: #ffffff;
+    --text-color-light: #a5a1aa;
+    --first-color-light: #333333;
+}
+
+.dark-mode .header {
+    background-color: var(--container-color);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .nav {
+    background-color: var(--container-color);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .nav__link {
+    color: var(--text-color);
+}
+
+.dark-mode .nav__link:hover {
+    color: var(--first-color);
+}
+
+.dark-mode .nav__dropdown-collapse {
+    background-color: var(--first-color-light);
+}
+
+.dark-mode .nav__dropdown-item:hover {
+    color: var(--first-color);
+}
+
+.dark-mode .header__search {
+    background-color: var(--first-color-light);
+}
+
+.dark-mode .header__input {
+    background-color: var(--first-color-light);
+    color: var(--text-color);
+}
+
+.dark-mode .header__input::placeholder {
+    color: var(--text-color-light);
+}
+
+/* Estilos para el botón de cambio de tema */
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#theme-toggle .checkbox {
+    margin-left: auto;
+}
+
+#theme-toggle .nav__name {
+    margin-right: 1rem;
+}
+
+/* Ajustes para el espaciado de la sección "TEMA" */
+.nav__items {
+    margin-bottom: 1.5rem;
+}
+
+.nav__items:last-child {
+    margin-bottom: 0;
+}
